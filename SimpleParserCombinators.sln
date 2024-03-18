@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleParserCombinators", "src\SimpleParserCombinators.csproj", "{9AED9FC5-1C9C-4DF5-B49A-D19720105BF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleParserCombinators", "SimpleParserCombinators\SimpleParserCombinators.csproj", "{9AED9FC5-1C9C-4DF5-B49A-D19720105BF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleParserCombinators.Test", "SimpleParserCombinators.Test\SimpleParserCombinators.Test.csproj", "{54C5209F-352E-4A35-8740-7E5D65F8D305}"
 EndProject
