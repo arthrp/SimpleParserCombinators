@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\SimpleParserCombinators.csproj" />
+      <ProjectReference Include="..\SimpleParserCombinators\SimpleParserCombinators.csproj" />
     </ItemGroup>
 
 </Project>
