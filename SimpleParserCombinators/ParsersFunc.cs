@@ -20,10 +20,23 @@ public static class ParsersFunc
 
     public static Func<string?, (int, string)?> Digit() => input =>
     {
-        if (!string.IsNullOrEmpty(input) && System.Char.IsDigit(input[0]))
+        if (!string.IsNullOrEmpty(input) && char.IsDigit(input[0]))
             return (int.Parse(input[0].ToString()), input[1..]);
 
         return null;
+    };
+
+    public static Func<string?, (int, string)?> Number() => input =>
+    {
+        if (string.IsNullOrEmpty(input)) return null;
+        int i = 0;
+        while (i < input.Length)
+        {
+            if (!char.IsDigit(input[i])) break;
+            i++;
+        }
+
+        return (int.Parse(input[..i]), input[i..]);
     };
 
     public static Func<string?, (T1, T2, string)?> Seq<T1, T2>(Func<string?, (T1, string)?> p1, Func<string?, (T2, string)?> p2)
