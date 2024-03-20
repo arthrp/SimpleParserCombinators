@@ -4,12 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        var helParser = Parsers.Str("hel");
-        var loParser = Parsers.Str("lo");
-        var helloParser = Parsers.Seq(helParser, loParser);
+        var helParser = ParsersFunc.Str("hel");
+        var loParser = ParsersFunc.Str("lo");
+        var helloParser = ParsersFunc.Seq(helParser, loParser);
 
-        var x = helloParser("hello, world");
+        var (x, y, _) = helloParser("hello, world")!.Value;
         
-        Console.WriteLine(x.Value.Item1.Item1);
+        Console.WriteLine(x);
+        Console.WriteLine(y);
     }
 }

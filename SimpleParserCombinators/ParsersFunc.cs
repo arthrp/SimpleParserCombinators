@@ -10,6 +10,14 @@ public static class ParsersFunc
         return null;
     };
 
+    public static Func<string?, (string, string)?> Str(string s) => input =>
+    {
+        if (!string.IsNullOrEmpty(input) && input.StartsWith(s))
+            return (s, input[s.Length..]);
+
+        return null;
+    };
+
     public static Func<string?, (int, string)?> Digit() => input =>
     {
         if (!string.IsNullOrEmpty(input) && System.Char.IsDigit(input[0]))
@@ -18,7 +26,7 @@ public static class ParsersFunc
         return null;
     };
 
-    public static Func<string?, ((T1, T2), string)?> Seq<T1, T2>(Func<string?, (T1, string)?> p1, Func<string?, (T2, string)?> p2)
+    public static Func<string?, (T1, T2, string)?> Seq<T1, T2>(Func<string?, (T1, string)?> p1, Func<string?, (T2, string)?> p2)
     {
         return input =>
         {
@@ -26,7 +34,7 @@ public static class ParsersFunc
             if (r1 == null) return null;
 
             var r2 = p2(r1.Value.Item2);
-            return (r2 == null) ? null : ((r1.Value.Item1, r2.Value.Item1), r2.Value.Item2);
+            return (r2 == null) ? null : (r1.Value.Item1, r2.Value.Item1, r2.Value.Item2);
         };
     }
 }
